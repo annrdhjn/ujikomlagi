@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Exception;
+use PDF;
 use PDOException;
 use App\Models\Menu;
 use App\Models\Jenis;
@@ -34,6 +35,13 @@ class MenuController extends Controller
     {
         Excel::import(new MenuImport, $request->import);
         return redirect()->back()->with('success', 'Import data berhasil');
+    }
+
+    public function generatepdf()
+    {
+        $menu = Menu::all();
+        $pdf = PDF::loadView('menu.dataMenu', compact('menu'));
+        return $pdf->download('menu.pdf');
     }
 
     public function store(StoreMenuRequest $request)

@@ -14,8 +14,7 @@
                         <div class="row x_title">
                             <div class="col-md-6">
                                 <h3>
-                                    PROJECT UJIKOM
-                                    <h3>JCASHIER</h3>
+                                JCASHIER
                                 </h3>
                             </div>
                             <div class="col-md-6">

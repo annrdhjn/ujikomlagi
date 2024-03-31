@@ -76,6 +76,10 @@
                   </li>
                 </ul>
                 <ul class="nav side-menu">
+                  <li><a href="{{ url('/meja')}}"><i class="fa fa-table"></i> Meja</a>
+                  </li>
+                </ul>
+                <ul class="nav side-menu">
                   <li><a href="{{ url('/logout')}}"><<i class="fa-solid fa-right-from-bracket"></i> Logout</a>
                   </li>
                 </ul>

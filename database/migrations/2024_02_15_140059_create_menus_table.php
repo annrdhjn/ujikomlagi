@@ -10,8 +10,8 @@ return new class extends Migration
     {
         Schema::create('menu', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('jenis_id')->references('id')->on('jenis')->cascadeOnDelete();
             $table->string('nama_menu');
+            $table->foreignId('jenis_id')->references('id')->on('jenis')->cascadeOnDelete();
             $table->double('harga');
             $table->string('image');
             $table->text('deskripsi');

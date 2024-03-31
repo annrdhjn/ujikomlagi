@@ -13,9 +13,8 @@
                     <div class="dashboard_graph">
                         <div class="row x_title">
                             <div class="col-md-6">
-                                <h3>
-                                    PROJECT UJIKOM
-                                    <h3>JCASHIER</h3>
+                            <h3>
+                                JCASHIER
                                 </h3>
                             </div>
                             <div class="col-md-6">
@@ -42,7 +41,13 @@
                                     </button>
                                     <a href="{{route('export-menu')}}" class="btn btn-success">
                                     <i class="fa fa-file-excel"></i> Export
-                                </a>                                
+                                </a>                   
+                                <button type="button" class="btn btn-warning" data-toggle="modal" data-target="#importMenu">
+                                    <i class="fa fa-file-excel"></i> Import
+                                </button> 
+                                <a href="{{route('export-menu-pdf')}}" class="btn btn-danger">
+                                    <i class="fa fa-file-pdf"></i> PDF
+                                </a>            
                                 </div>
                                 <div class="clearfix"></div>
                             </div>

@@ -1,4 +1,4 @@
-@extends('template.layout')
+@extends('template.layout2')
 
 @push('style')
 
@@ -33,15 +33,12 @@
                         </div>
                         <div class="col-md-12 col-sm-3 bg-white">
                             <div class="x_title">
-                                <h2>Stok</h2>
+                                <h2>Meja</h2>
                                 <div class="float-right ml-auto">
                                     <button type="button" class="btn btn-primary" data-toggle="modal"
-                                        data-target="#modalFormStok">
-                                        Tambah Stok
+                                        data-target="#modalFormMeja">
+                                        Tambah Meja
                                     </button>
-                                    <a href="{{route('export-stok')}}" class="btn btn-success">
-                                    <i class="fa fa-file-excel"></i> Export
-                                </a>
                                 </div>
                                 <div class="clearfix"></div>
                             </div>
@@ -69,7 +66,7 @@
                                     </div>
                                 @endif
                                 <div class="mt-3">
-                                    @include('stok.dataStok')
+                                    @include('meja.data')
                                 </div>
                                 <!-- Button trigger modal -->
                             </div>
@@ -81,13 +78,13 @@
             </div>
             <br />
         </div>
-        @include('stok.formStok')
+        @include('meja.form')
     </section>
 @endsection
 
 @push('script')
 <script>
-        // $('#tbl-stok').DataTable()
+        // $('#tbl-meja').DataTable()
 
         $('.alert-success').fadeTo(2000,500).slideUp(500, function(){
              $('.alert-success').slideUp(500)
@@ -116,27 +113,45 @@
         })
     })
 
-    $('#modalFormStok').on('show.bs.modal', function(e) {
+    $('#modalFormMeja').on('show.bs.modal', function(e) {
         const btn = $(e.relatedTarget)
         const mode = btn.data('mode')
-        const menu_id = btn.data('menu_id')
-        const jumlah = btn.data('jumlah')
+        const no_meja = btn.data('no_meja')
+        const kapasitas = btn.data('kapasitas')
+        const status = btn.data('status')
         const id = btn.data('id')
         const modal = $(this)
         if(mode === 'edit'){
-            console.log(jumlah)
+            console.log(no_meja)
             modal.find('.modal-title').text('Edit Data')
-            modal.find('#menu_id').val(menu_id)
-            modal.find('#jumlah').val(jumlah)
-            modal.find('.modal-body form').attr('action','{{ url("stok")}}/' + id)
+            modal.find('#no_meja').val(no_meja)
+            modal.find('#kapasitas').val(kapasitas)
+            modal.find('#status').val(status)
+            modal.find('.modal-body form').attr('action','{{ url("meja")}}/' + id)
             modal.find('#method').html('@method("PATCH")')
         }else{
-            modal.find('.modal-title').text('Input Data Stok')
-            modal.find('#menu_id').val('')
-            modal.find('#jumlah').val('')
+            modal.find('.modal-title').text('Input Data Meja')
+            modal.find('#no_meja').val('')
+            modal.find('#kapasitas').val('')
+            modal.find('#status').val('')
             modal.find('#method').html('')
-            modal.find('.modal-body form').attr('action','{{ url("stok") }}')
+            modal.find('.modal-body form').attr('action','{{ url("meja") }}')
         }
+
     })
+
+
+
+    // $(document).ready(function () {
+        // You might need to initialize your modal using JavaScript
+        // $('#formImport').modal({
+        //     backdrop: 'static', // Prevent closing on click outside the modal
+        //     keyboard: false // Prevent closing with keyboard
+        // });
+
+        // Alternatively, if you are using Bootstrap's data attributes, you can trigger the modal manually
+    //     $('#formImport').modal('show');
+    // });
+
     </script>
 @endpush

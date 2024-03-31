@@ -11,6 +11,7 @@ use App\Imports\JenisImport;
 use Illuminate\Database\QueryException;
 use App\Http\Requests\StoreJenisRequest;
 use App\Http\Requests\UpdateJenisRequest;
+use PDF;
 use Illuminate\Http\Request;
 use Maatwebsite\Excel\Facades\Excel;
 
@@ -38,7 +39,12 @@ class JenisController extends Controller
         Excel::import(new jenisImport, $request->import);
         return redirect()->back()->with('success', 'Import data jenis berhasil');
     }
-
+    public function generatepdf()
+    {
+        $jenis = Jenis::all();
+        $pdf = PDF::loadView('jenis.data', compact('jenis'));
+        return $pdf->download('jenis.pdf');
+    }
     public function store(StoreJenisRequest $request)
     {
         Jenis::create($request->all());

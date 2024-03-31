@@ -3,6 +3,7 @@
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\JenisController;
 use App\Http\Controllers\LoginController;
+use App\Http\Controllers\MejaController;
 use App\Http\Controllers\MenuController;
 use App\Http\Controllers\PelangganController;
 use App\Http\Controllers\PemesananController;
@@ -17,16 +18,15 @@ Route::get('/', [HomeController::class, 'index']);
 Route::resource('/jenis', JenisController::class);
 Route::resource('/menu', MenuController::class);
 Route::resource('/stok', StokController::class);  
-
 });
 
 Route::group(['middleware'=>['cekLoginUser:2']], function(){
     Route::resource('/pelanggan', PelangganController::class);
     Route::resource('/pemesanan', PemesananController::class);
+    Route::resource('/meja', MejaController::class);
     Route::resource('/transaksi', TransaksiController::class);
-    Route::resource('/produk', ProdukTitipanController::class);
+    // Route::resource('/produk', ProdukTitipanController::class);
     Route::get('/nota/{nofaktur}', [TransaksiController::class, 'faktur']);
-
     });
 
 Route::get('/login', [LoginController::class, 'index'])->name('login');
@@ -41,7 +41,11 @@ Route::get('export/pelanggan', [PelangganController::class, 'exportData'])->name
 Route::get('export/produk', [ProdukTitipanController::class, 'exportData'])->name('export-produk');
 
 
-// export excel
+// Import excel
 // Route::post('pelanggan/import', [PelangganController::class, 'importData'])->name('import-pelanggan');
 Route::post('jenis/import', [JenisController::class, 'importData'])->name('import-jenis');
 Route::post('menu/import', [MenuController::class, 'importData'])->name('import-menu');
+
+// Import excel
+Route::get('export/jenis/pdf', [JenisController::class, 'generatepdf'])->name('export-jenis-pdf');
+Route::get('export/menu/pdf', [MenuController::class, 'generatepdf'])->name('export-menu-pdf');

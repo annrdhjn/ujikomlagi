@@ -15,8 +15,8 @@ class MenuImport implements ToCollection, WithHeadingRow
             // Check if the 'nama_jenis' key exists and is not null
             if (isset($row['nama_menu']) && $row['nama_menu'] !== null) {
                 Menu::create([
-                    'jenis_id' => $row['jenis_id'],
                     'nama_menu' => $row['nama_menu'],
+                    'jenis_id' => $row['jenis_id'],
                     'harga' => $row['harga'],
                     'image' => $row['image'],
                     'deskripsi' => $row['deskripsi'],
