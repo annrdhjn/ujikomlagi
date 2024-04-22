@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\JenisController;
+use App\Http\Controllers\KategoriController;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\MejaController;
 use App\Http\Controllers\MenuController;
@@ -15,6 +16,7 @@ use Illuminate\Support\Facades\Route;
 
 Route::group(['middleware'=>['cekLoginUser:1']], function(){
 Route::get('/', [HomeController::class, 'index']);
+Route::resource('/kategori', KategoriController::class);  
 Route::resource('/jenis', JenisController::class);
 Route::resource('/menu', MenuController::class);
 Route::resource('/stok', StokController::class);  
@@ -42,9 +44,11 @@ Route::get('export/produk', [ProdukTitipanController::class, 'exportData'])->nam
 
 
 // Import excel
-// Route::post('pelanggan/import', [PelangganController::class, 'importData'])->name('import-pelanggan');
 Route::post('jenis/import', [JenisController::class, 'importData'])->name('import-jenis');
 Route::post('menu/import', [MenuController::class, 'importData'])->name('import-menu');
+Route::post('stok/import', [StokController::class, 'importData'])->name('import-stok');
+Route::post('pelanggan/import', [StokController::class, 'importData'])->name('import-pelanggan');
+
 
 // Import excel
 Route::get('export/jenis/pdf', [JenisController::class, 'generatepdf'])->name('export-jenis-pdf');

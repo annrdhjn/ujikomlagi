@@ -11,19 +11,16 @@ class PelangganImport implements ToCollection, WithHeadingRow
 {
     public function collection(Collection $rows)
     {
-    // foreach ($rows as $row) {
-        // Debug statements
-        // dd($row);
-    //     Pelanggan::create([
-    //         'nama' => $row['nama'],
-    //         'email' => $row['email'],
-    //         'no_tlp' => $row['no_tlp'],
-    //         'alamat' => $row['alamat'],
-    //     ]);
-    // }
+        foreach ($rows as $row) {
+            // Check if the 'nama_jenis' key exists and is not null
+            if (isset($row['nama']) && $row['nama'] !== null) {
+                Pelanggan::create([
+                    'nama' => $row['nama'],
+                    'email' => $row['email'],
+                    'no_tlp' => $row['no_tlp'],
+                    'alamat' => $row['alamat'],
+                ]);
+            }
+        }
     }
-
-    // public function headingRow(): int{
-    //     return 4;
-    // }
 }

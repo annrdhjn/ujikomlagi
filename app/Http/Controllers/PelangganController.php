@@ -6,10 +6,10 @@ use Exception;
 use PDOException;
 use App\Models\Pelanggan;
 use App\Exports\PelangganExport;
+use App\Imports\PelangganImport;
 use Illuminate\Database\QueryException;
 use App\Http\Requests\StorePelangganRequest;
 use App\Http\Requests\UpdatePelangganRequest;
-use App\Imports\PelangganImport;
 use Illuminate\Http\Request;
 use Maatwebsite\Excel\Facades\Excel;
 
@@ -31,11 +31,11 @@ class PelangganController extends Controller
         return Excel::download(new PelangganExport, $date.'_pelanggan.xlsx');
     }
 
-    // public function importData(Request $request)
-    // {
-    //     Excel::import(new PelangganImport, $request->import);
-    //     return redirect()->back()->with('success', 'Import data Pelanggan berhasil');
-    // }
+    public function importData(Request $request)
+    {
+        Excel::import(new PelangganImport, $request->import);
+        return redirect()->back()->with('success', 'Import data berhasil');
+    }
 
     public function store(StorePelangganRequest $request)
     {

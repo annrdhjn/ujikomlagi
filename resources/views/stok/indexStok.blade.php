@@ -42,6 +42,9 @@
                                     <a href="{{route('export-stok')}}" class="btn btn-success">
                                     <i class="fa fa-file-excel"></i> Export
                                 </a>
+                                <button type="button" class="btn btn-warning" data-toggle="modal" data-target="#importStok">
+                                    <i class="fa fa-file-excel"></i> Import
+                                </button> 
                                 </div>
                                 <div class="clearfix"></div>
                             </div>
@@ -81,6 +84,7 @@
             </div>
             <br />
         </div>
+        @include('stok.modal')
         @include('stok.formStok')
     </section>
 @endsection

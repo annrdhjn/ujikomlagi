@@ -8,7 +8,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
 	<link rel="icon" href="images/favicon.ico" type="image/ico" />
 
-    <title>UjiKom Lagii</title>
+    <title>Bahan UjiKom Fiks</title>
 
     <!-- Bootstrap -->
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" rel="stylesheet">
@@ -67,6 +67,10 @@
             <div id="sidebar-menu" class="main_menu_side hidden-print main_menu">
               <div class="menu_section">
                 <h3>ADMIN</h3>
+                <ul class="nav side-menu">
+                  <li><a href="{{ url('/kategori')}}"><i class="fa fa-readme"></i> Category</a>
+                  </li>
+                </ul>
                 <ul class="nav side-menu">
                   <li><a href="{{ url('/jenis')}}"><i class="fa fa-readme"></i> Jenis</a>
                   </li>

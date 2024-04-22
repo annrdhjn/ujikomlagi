@@ -1,4 +1,4 @@
-@extends('template.layout2')
+@extends('template.layout')
 
 @push('style')
 
@@ -33,18 +33,21 @@
                         </div>
                         <div class="col-md-12 col-sm-3 bg-white">
                             <div class="x_title">
-                                <h2>Pelanggan</h2>
+                                <h2>Kategori</h2>
                                 <div class="float-right ml-auto">
                                     <button type="button" class="btn btn-primary" data-toggle="modal"
-                                        data-target="#modalFormPelanggan">
-                                        Tambah Pelanggan
+                                        data-target="#modalFormKategori">
+                                        Tambah Kategori
                                     </button>
-                                    <a href="{{route('export-pelanggan')}}" class="btn btn-success">
+                                <!-- <a href="{{route('export-jenis')}}" class="btn btn-success">
                                     <i class="fa fa-file-excel"></i> Export
                                 </a>
-                                <button type="button" class="btn btn-warning" data-toggle="modal" data-target="#importPelanggan">
+                                <button type="button" class="btn btn-warning" data-toggle="modal" data-target="#importJenis">
                                     <i class="fa fa-file-excel"></i> Import
                                 </button>
+                                <a href="{{route('export-jenis-pdf')}}" class="btn btn-danger">
+                                    <i class="fa fa-file-pdf"></i> PDF
+                                </a> -->
                                 </div>
                                 <div class="clearfix"></div>
                             </div>
@@ -72,7 +75,7 @@
                                     </div>
                                 @endif
                                 <div class="mt-3">
-                                    @include('pelanggan.data')
+                                    @include('kategori.data')
                                 </div>
                                 <!-- Button trigger modal -->
                             </div>
@@ -84,14 +87,13 @@
             </div>
             <br />
         </div>
-        @include('pelanggan.modal')
-        @include('pelanggan.form')
+        @include('kategori.form')
     </section>
 @endsection
 
 @push('script')
 <script>
-        // $('#tbl-pelanggan').DataTable()
+        // $('#tbl-kategori').DataTable()
 
         $('.alert-success').fadeTo(2000,500).slideUp(500, function(){
              $('.alert-success').slideUp(500)
@@ -120,48 +122,24 @@
         })
     })
 
-    $('#modalFormPelanggan').on('show.bs.modal', function(e) {
+    $('#modalFormKategori').on('show.bs.modal', function(e) {
         const btn = $(e.relatedTarget)
         const mode = btn.data('mode')
-        const nama = btn.data('nama')
-        const email = btn.data('email')
-        const no_tlp = btn.data('no_tlp')
-        const alamat = btn.data('alamat')
+        const nama_kategori = btn.data('nama_kategori')
         const id = btn.data('id')
         const modal = $(this)
         if(mode === 'edit'){
-            console.log(nama)
+            console.log(nama_kategori)
             modal.find('.modal-title').text('Edit Data')
-            modal.find('#nama').val(nama)
-            modal.find('#email').val(email)
-            modal.find('#no_tlp').val(no_tlp)
-            modal.find('#alamat').val(alamat)
-            modal.find('.modal-body form').attr('action','{{ url("pelanggan")}}/' + id)
+            modal.find('#nama_kategori').val(nama_kategori)
+            modal.find('.modal-body form').attr('action','{{ url("kategori")}}/' + id)
             modal.find('#method').html('@method("PATCH")')
         }else{
-            modal.find('.modal-title').text('Input Data Pelanggan')
-            modal.find('#nama').val('')
-            modal.find('#email').val('')
-            modal.find('#no_tlp').val('')
-            modal.find('#alamat').val('')
+            modal.find('.modal-title').text('Input Data Kategori')
+            modal.find('#nama_kategori').val('')
             modal.find('#method').html('')
-            modal.find('.modal-body form').attr('action','{{ url("pelanggan") }}')
+            modal.find('.modal-body form').attr('action','{{ url("kategori") }}')
         }
-
     })
-
-
-
-    // $(document).ready(function () {
-        // You might need to initialize your modal using JavaScript
-        // $('#formImport').modal({
-        //     backdrop: 'static', // Prevent closing on click outside the modal
-        //     keyboard: false // Prevent closing with keyboard
-        // });
-
-        // Alternatively, if you are using Bootstrap's data attributes, you can trigger the modal manually
-    //     $('#formImport').modal('show');
-    // });
-
     </script>
 @endpush
