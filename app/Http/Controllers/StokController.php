@@ -38,7 +38,7 @@ class StokController extends Controller
         return redirect('stok')->with('success', 'Data produk berhasil di tambahkan!');
     }
 
-    public function update(UpdateStokRequest $request, string $id)
+    public function update(StoreStokRequest $request, string $id)
     {
         $stok = Stok::find($id)->update($request->all());
         return redirect('stok')->with('success', 'Update data berhasil');

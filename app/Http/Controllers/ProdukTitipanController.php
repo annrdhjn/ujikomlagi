@@ -29,7 +29,7 @@ class ProdukTitipanController extends Controller
         return redirect('produk')->with('success', 'Data produk berhasil di tambahkan!');
     }
 
-    public function update(UpdateProdukTitipanRequest $request, string $id)
+    public function update(StoreProdukTitipanRequest $request, string $id)
     {
         $produkTitipan = ProdukTitipan::find($id)->update($request->all());
         return redirect('produk')->with('success', 'Update data berhasil');

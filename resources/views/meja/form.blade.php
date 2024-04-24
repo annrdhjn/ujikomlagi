@@ -14,14 +14,14 @@
               <div class="form-group row">
                 <label for="staticEmail" class="col-sm-4 col-form-label">No Meja</label>
                 <div class="col-sm-8">
-                <input type="text" class="form-control" id="no_meja" value="" name="no_meja">
+                <input type="number" class="form-control" id="no_meja" value="" name="no_meja">
                 </div>
               </div>
 
               <div class="form-group row">
                 <label for="staticEmail" class="col-sm-4 col-form-label">Kapasitas</label>
                 <div class="col-sm-8">
-                <input type="text" class="form-control" id="kapasitas" value="" name="kapasitas">
+                <input type="number" class="form-control" id="kapasitas" value="" name="kapasitas">
                 </div>
               </div>
 

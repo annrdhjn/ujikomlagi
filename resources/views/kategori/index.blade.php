@@ -39,13 +39,13 @@
                                         data-target="#modalFormKategori">
                                         Tambah Kategori
                                     </button>
-                                <!-- <a href="{{route('export-jenis')}}" class="btn btn-success">
+                                <a href="{{route('export-kategori')}}" class="btn btn-success">
                                     <i class="fa fa-file-excel"></i> Export
                                 </a>
-                                <button type="button" class="btn btn-warning" data-toggle="modal" data-target="#importJenis">
+                                <button type="button" class="btn btn-warning" data-toggle="modal" data-target="#importKategori">
                                     <i class="fa fa-file-excel"></i> Import
                                 </button>
-                                <a href="{{route('export-jenis-pdf')}}" class="btn btn-danger">
+                                <!-- <a href="{{route('export-jenis-pdf')}}" class="btn btn-danger">
                                     <i class="fa fa-file-pdf"></i> PDF
                                 </a> -->
                                 </div>
@@ -87,6 +87,7 @@
             </div>
             <br />
         </div>
+        @include('kategori.modal')
         @include('kategori.form')
     </section>
 @endsection

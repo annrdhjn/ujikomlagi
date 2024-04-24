@@ -10,7 +10,7 @@ class Menu extends Model
     use HasFactory;
 
     protected $table = 'menu';
-    protected $guarded = ['id'];
+    protected $fillable = ['nama_menu', 'jenis_id', 'harga', 'image', 'deskripsi' ];
 
     public function jenis(){
         return $this->belongsTo(Jenis::class, 'jenis_id');

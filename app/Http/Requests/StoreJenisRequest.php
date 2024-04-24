@@ -11,10 +11,17 @@ class StoreJenisRequest extends FormRequest
         return true;
     }
 
-    public function rules(): array
+    public function rules()
     {
         return [
-            //
+            'nama_jenis' => 'required'
+        ];
+    }
+
+    public function messages()
+    {
+        return [
+            'nama_jenis.required' => 'Data nama menu belum diisi'
         ];
     }
 }

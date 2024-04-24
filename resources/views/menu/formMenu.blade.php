@@ -35,7 +35,7 @@
           <div class="form-group row">
             <label for="staticEmail" class="col-sm-4 col-form-label">Harga</label>
               <div class="col-md-8 col-sm-6  form-group has-feedback">
-                <input type="text" class="form-control has-feedback-left" id="harga" placeholder="Harga" value="" name="harga">
+                <input type="number" class="form-control has-feedback-left" id="harga" placeholder="Harga" value="" name="harga">
                 <span class="color-black form-control-feedback left" aria-hidden="true">Rp. </span>
               </div>
               </div>

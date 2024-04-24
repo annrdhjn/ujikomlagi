@@ -80,8 +80,9 @@
                   </li>
                 </ul>
                 <ul class="nav side-menu">
-                  <li><a href="{{ url('/logout')}}"><<i class="fa-solid fa-right-from-bracket"></i> Logout</a>
+                  <li><a href="{{ url('/logout')}}"><i class="fa-solid fa-right-from-bracket"></i> Logout</a>
                   </li>
+                </ul>
                 </ul>
               </div>
             </div>

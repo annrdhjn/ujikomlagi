@@ -2,12 +2,16 @@
 
 namespace App\Http\Controllers;
 
+use App\Exports\mejaExport;
 use Exception;
 use PDOException;
 use App\Models\Meja;
 use App\Http\Requests\StoreMejaRequest;
 use App\Http\Requests\UpdateMejaRequest;
+use App\Imports\mejaImport;
 use Illuminate\Database\QueryException;
+use Illuminate\Http\Request;
+use Maatwebsite\Excel\Facades\Excel;
 
 class MejaController extends Controller
 {
@@ -23,13 +27,24 @@ class MejaController extends Controller
         }
     }
 
+    public function exportData(){
+        $date = date('Y-m-d');
+        return Excel::download(new mejaExport, $date.'_meja.xlsx');
+    }
+
     public function store(StoreMejaRequest $request)
     {
         Meja::create($request->all());
-        return redirect('jenis')->with('success', 'Data produk berhasil di tambahkan!');
+        return redirect('meja')->with('success', 'Data produk berhasil di tambahkan!');
     }
 
-    public function update(UpdateMejaRequest $request, string $id)
+    public function importData(Request $request)
+    {
+        Excel::import(new mejaImport, $request->import);
+        return redirect()->back()->with('success', 'Import data berhasil');
+    }
+
+    public function update(StoreMejaRequest $request, string $id)
     {
         $meja = Meja::find($id)->update($request->all());
         return redirect('meja')->with('success', 'Update data berhasil');

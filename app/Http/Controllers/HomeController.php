@@ -8,5 +8,9 @@ class HomeController extends Controller
 {
     public function index(){
         return view('template.layout');
-    }  
+    } 
+    
+    public function kontak(){
+        return view('kontak.contact');
+    }
 }

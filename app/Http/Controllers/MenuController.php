@@ -61,7 +61,7 @@ class MenuController extends Controller
         return back()->with('success'.'You have succesfully uploaded an image.')->with('image', $imageName);
     }
 
-    public function update(UpdateMenuRequest $request, string $id)
+    public function update(StoreMenuRequest $request, string $id)
     {
         $menu = Menu::find($id)->update($request->all());
         return redirect('menu')->with('success', 'Update data berhasil');

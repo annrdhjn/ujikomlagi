@@ -28,7 +28,7 @@
               <div class="form-group row">
                 <label for="staticEmail" class="col-sm-4 col-form-label">No Telepon</label>
                 <div class="col-sm-8">
-                <input type="text" class="form-control" id="no_tlp" value="" name="no_tlp">
+                <input type="number" class="form-control" id="no_tlp" value="" name="no_tlp">
                 </div>
               </div>
 

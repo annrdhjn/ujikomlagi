@@ -39,6 +39,12 @@
                                         data-target="#modalFormMeja">
                                         Tambah Meja
                                     </button>
+                                    <a href="{{route('export-meja')}}" class="btn btn-success">
+                                    <i class="fa fa-file-excel"></i> Export
+                                </a> 
+                                <button type="button" class="btn btn-warning" data-toggle="modal" data-target="#importMeja">
+                                    <i class="fa fa-file-excel"></i> Import
+                                </button> 
                                 </div>
                                 <div class="clearfix"></div>
                             </div>
@@ -78,6 +84,7 @@
             </div>
             <br />
         </div>
+        @include('meja.modal')
         @include('meja.form')
     </section>
 @endsection

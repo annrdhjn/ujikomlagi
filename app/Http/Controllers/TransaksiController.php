@@ -81,7 +81,7 @@ class TransaksiController extends Controller
     
     
 
-    public function update(UpdateTransaksiRequest $request, Transaksi $transaksi)
+    public function update(StoreTransaksiRequest $request, Transaksi $transaksi)
     {
         // Your update method code here
     }

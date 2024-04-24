@@ -11,10 +11,20 @@ class StoreStokRequest extends FormRequest
         return true;
     }
 
-    public function rules(): array
+    public function rules()
     {
         return [
-            //
+            'menu_id' => 'required',
+            'jumlah' => 'required'
+        ];
+    }
+
+    public function messages()
+    {
+        return [
+            'menu_id.required' => 'Menu belum diisi',
+            'jumlah.required' => 'Jumlah belum diisi',
+
         ];
     }
 }

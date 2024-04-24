@@ -67,12 +67,16 @@
             <div id="sidebar-menu" class="main_menu_side hidden-print main_menu">
               <div class="menu_section">
                 <h3>ADMIN</h3>
+                <!-- <ul class="nav side-menu">
+                  <li><a href="{{ url('/kontak')}}"><i class="fa fa-readme"></i> Contact Us</a>
+                  </li>
+                </ul> -->
                 <ul class="nav side-menu">
-                  <li><a href="{{ url('/kategori')}}"><i class="fa fa-readme"></i> Category</a>
+                  <li><a href="{{ url('/jenis')}}"><i class="fa fa-readme"></i> Jenis</a>
                   </li>
                 </ul>
                 <ul class="nav side-menu">
-                  <li><a href="{{ url('/jenis')}}"><i class="fa fa-readme"></i> Jenis</a>
+                  <li><a href="{{ url('/kategori')}}"><i class="fa fa-readme"></i> Category</a>
                   </li>
                 </ul>
                 <ul class="nav side-menu">
@@ -83,12 +87,15 @@
                   <li><a href="{{ url('/stok')}}"><i class="fa fa-cart-plus"></i> Stok</a>
                   </li>
                 </ul>
+                <ul class="nav side-menu">
+                  <li><a href="{{ url('/absensi')}}"><i class="fa-solid fa-user-tie"></i> Absensi</a>
+                  </li>
                 <!-- <ul class="nav side-menu">
                   <li><a href="{{ url('/about')}}"><i class="fa fa-cart-plus"></i> About App</a>
                   </li>
                 </ul> -->
                 <ul class="nav side-menu">
-                  <li><a href="{{ url('/logout')}}"><<i class="fa-solid fa-right-from-bracket"></i> Logout</a>
+                  <li><a href="{{ url('/logout')}}"><i class="fa-solid fa-right-from-bracket"></i> Logout</a>
                   </li>
                 </ul>
               </div>

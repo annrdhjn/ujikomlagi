@@ -43,7 +43,7 @@ class PelangganController extends Controller
         return redirect('pelanggan')->with('success', 'Data produk berhasil di tambahkan!');
     }
 
-    public function update(UpdatePelangganRequest $request, string $id)
+    public function update(StorePelangganRequest $request, string $id)
     {
         $pelanggan = Pelanggan::find($id)->update($request->all());
         return redirect('pelanggan')->with('success', 'Update data berhasil');

@@ -26,7 +26,7 @@
               <div class="form-group row">
                 <label for="staticEmail" class="col-sm-4 col-form-label">Jumlah</label>
                 <div class="col-sm-8">
-                <input type="text" class="form-control" id="jumlah" value="" name="jumlah">
+                <input type="number" class="form-control" id="jumlah" value="" name="jumlah">
                 </div>
               </div>
 

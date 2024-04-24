@@ -11,10 +11,22 @@ class StoreMenuRequest extends FormRequest
         return true;
     }
 
-    public function rules(): array
+    public function rules()
     {
         return [
-            //
+            'nama_menu' => 'required',
+            'harga' => 'required',
+            'image' => 'required',
+            'deskripsi' => 'required'
+        ];
+    }
+
+    public function messages()
+    {
+        return [
+            'nama_menu.required' => 'Data nama menu belum diisi',
+            'harga.required' => 'Data harga belum diisi',
+            'deskripsi.required' => 'Data deskripsi belum diisi'
         ];
     }
 }

@@ -27,7 +27,7 @@ class PemesananController extends Controller
         return view('pemesanan.index', compact('data', 'jenis'));    
     }
 
-    public function update(UpdatePemesananRequest $request, Pemesanan $pemesanan)
+    public function update(StorePemesananRequest $request, Pemesanan $pemesanan)
     {
         $pemesanan->update($request->all());
 

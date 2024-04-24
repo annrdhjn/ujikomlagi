@@ -84,7 +84,7 @@
                 <br />
                 <div>
                   <h1><i class="fa fa-cloud"></i> JCAFE</h1>
-                  <p>©2016 All Rights Reserved. JCAFE. Privacy and Terms</p>
+                  <p>©2024 All Rights Reserved. JCAFE. Privacy and Terms</p>
                 </div>
               </div>
             </form>
@@ -119,7 +119,7 @@
                 <br />
                 <div>
                   <h1><i class="fa fa-cloud"></i> JCAFE</h1>
-                  <p>©2016 All Rights Reserved. JCAFE. Privacy and Terms</p>
+                  <p>©2024 All Rights Reserved. JCAFE. Privacy and Terms</p>
                 </div>
               </div>
             </form>

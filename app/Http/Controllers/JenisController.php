@@ -39,6 +39,7 @@ class JenisController extends Controller
         Excel::import(new jenisImport, $request->import);
         return redirect()->back()->with('success', 'Import data jenis berhasil');
     }
+    
     public function generatepdf()
     {
         $jenis = Jenis::all();
@@ -51,7 +52,7 @@ class JenisController extends Controller
         return redirect('jenis')->with('success', 'Data produk berhasil di tambahkan!');
     }
 
-    public function update(UpdateJenisRequest $request, string $id)
+    public function update(StoreJenisRequest $request, string $id)
     {
         $jenis = Jenis::find($id)->update($request->all());
         return redirect('jenis')->with('success', 'Update data berhasil');
