@@ -12,7 +12,7 @@ return new class extends Migration
             $table->id();
             $table->string('nama');
             $table->string('email');
-            $table->integer('no_tlp');
+            $table->double('no_tlp');
             $table->longText('alamat');
             $table->timestamps();
         });

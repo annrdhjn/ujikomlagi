@@ -37,12 +37,12 @@ class MenuController extends Controller
         return redirect()->back()->with('success', 'Import data berhasil');
     }
 
-    public function generatepdf()
-    {
-        $menu = Menu::all();
-        $pdf = PDF::loadView('menu.dataMenu', compact('menu'));
-        return $pdf->download('menu.pdf');
-    }
+    // public function generatepdf()
+    // {
+    //     $menu = Menu::all();
+    //     $pdf = PDF::loadView('menu.dataMenu', compact('menu'));
+    //     return $pdf->download('menu.pdf');
+    // }
 
     public function store(StoreMenuRequest $request)
     {
@@ -63,7 +63,16 @@ class MenuController extends Controller
 
     public function update(StoreMenuRequest $request, string $id)
     {
-        $menu = Menu::find($id)->update($request->all());
+        $menu = Menu::find($id);
+        $request->validate([
+            'image' => 'required|image|mimes:png, jpg, jpeg, svg|max:2048',
+        ]);
+        $imageName = time() . '.' . $request->image->extension();
+        $request->image->move(public_path('image'), $imageName);
+        $data = $request->all();
+        $data['image'] = $imageName;
+
+        $menu->update($data);
         return redirect('menu')->with('success', 'Update data berhasil');
     }
 
