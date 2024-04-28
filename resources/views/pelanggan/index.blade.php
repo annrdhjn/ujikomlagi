@@ -1,4 +1,4 @@
-@extends('template.layout2')
+@extends('template.layout')
 
 @push('style')
 
@@ -91,7 +91,7 @@
 
 @push('script')
 <script>
-        // $('#tbl-pelanggan').DataTable()
+        $('#tbl-pelanggan').DataTable();
 
         $('.alert-success').fadeTo(2000,500).slideUp(500, function(){
              $('.alert-success').slideUp(500)

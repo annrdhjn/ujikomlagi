@@ -33,8 +33,10 @@
     <!-- Custom Theme Style -->
     <link href="{{ asset('template')}}/build/css/custom.min.css" rel="stylesheet">
     <link href="{{ asset('bootstrap-5.0.2')}}/assets/dist/css/custom.min.css" rel="stylesheet">
-    <link href="{{ asset('template')}}/vendors/datatables.net-bs/css/dataTables.min.css" rel="stylesheet">
-
+    <link rel="stylesheet" href="{{ asset('adminlte3')}}/plugins/datatables-bs4/css/dataTables.bootstrap4.css">
+    
+    <script src="{{ asset('template') }}/vendors/datatables.net/js/jquery.dataTables.min.js"></script>
+    <script src="{{ asset('template') }}/vendors/datatables.net-bs/js/dataTables.bootstrap.min.js"></script>
     @stack('script')
   </head>
 
@@ -66,6 +68,7 @@
             <!-- sidebar menu -->
             <div id="sidebar-menu" class="main_menu_side hidden-print main_menu">
               <div class="menu_section">
+                @if (Auth::user()->level == 1)
                 <h3>ADMIN</h3>
                 <!-- <ul class="nav side-menu">
                   <li><a href="{{ url('/kontak')}}"><i class="fa fa-readme"></i> Contact Us</a>
@@ -75,10 +78,10 @@
                   <li><a href="{{ url('/jenis')}}"><i class="fa fa-readme"></i> Jenis</a>
                   </li>
                 </ul>
-                <ul class="nav side-menu">
+                <!-- <ul class="nav side-menu">
                   <li><a href="{{ url('/kategori')}}"><i class="fa fa-readme"></i> Category</a>
                   </li>
-                </ul>
+                </ul> -->
                 <ul class="nav side-menu">
                   <li><a href="{{ url('/menu')}}"><i class="fa fa-utensils"></i> Menu</a>
                   </li>
@@ -87,9 +90,9 @@
                   <li><a href="{{ url('/stok')}}"><i class="fa fa-cart-plus"></i> Stok</a>
                   </li>
                 </ul>
-                <ul class="nav side-menu">
+                <!-- <ul class="nav side-menu">
                   <li><a href="{{ url('/absensi')}}"><i class="fa-solid fa-user-tie"></i> Absensi</a>
-                  </li>
+                  </li> -->
                 <!-- <ul class="nav side-menu">
                   <li><a href="{{ url('/about')}}"><i class="fa fa-cart-plus"></i> About App</a>
                   </li>
@@ -98,6 +101,36 @@
                   <li><a href="{{ url('/logout')}}"><i class="fa-solid fa-right-from-bracket"></i> Logout</a>
                   </li>
                 </ul>
+                @endif
+                @if (Auth::user()->level == 2)
+                <h3>KASIR</h3>
+                <ul class="nav side-menu">
+                  <li><a href="{{ url('/pelanggan')}}"><i class="fa fa-users"></i> Pelanggan</a>
+                  </li>
+                </ul>
+                <ul class="nav side-menu">
+                  <li><a href="{{ url('/pemesanan')}}"><i class="fa fa-cash-register"></i> Pemesanan</a>
+                  </li>
+                </ul>
+                <!-- <ul class="nav side-menu">
+                  <li><a href="{{ url('/meja')}}"><i class="fa fa-table"></i> Meja</a>
+                  </li>
+                </ul> -->
+                <ul class="nav side-menu">
+                  <li><a href="{{ url('/logout')}}"><i class="fa-solid fa-right-from-bracket"></i> Logout</a>
+                  </li>
+                </ul>
+                @endif
+                @if (Auth::user()->level == 3)
+                <ul class="nav side-menu">
+                  <li><a href="{{ url('/laporan')}}"><i class="fa fa-book"></i> Laporan</a>
+                  </li>
+                </ul>
+                <ul class="nav side-menu">
+                  <li><a href="{{ url('/logout')}}"><i class="fa-solid fa-right-from-bracket"></i> Logout</a>
+                  </li>
+                </ul>
+                @endif
               </div>
             </div>
 

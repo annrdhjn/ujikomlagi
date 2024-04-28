@@ -12,7 +12,9 @@ use App\Exports\MenuExport;
 use Illuminate\Database\QueryException;
 use App\Http\Requests\StoreMenuRequest;
 use App\Http\Requests\UpdateMenuRequest;
+use Dompdf\Dompdf;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\View;
 use Maatwebsite\Excel\Facades\Excel;
 
 class MenuController extends Controller
@@ -37,12 +39,32 @@ class MenuController extends Controller
         return redirect()->back()->with('success', 'Import data berhasil');
     }
 
-    // public function generatepdf()
-    // {
-    //     $menu = Menu::all();
-    //     $pdf = PDF::loadView('menu.dataMenu', compact('menu'));
-    //     return $pdf->download('menu.pdf');
-    // }
+    public function generatepdf()
+    {
+        // Get data
+        $menu = menu::all();
+
+        // Loop through menu items and encode images to base64
+        foreach ($menu as $p) {
+            $imagePath = public_path('image/' . $p->image);
+            if (file_exists($imagePath)) {
+                $image = base64_encode(file_get_contents($imagePath));
+                $p->image = $image;
+            } else {
+                // Handle the case where the image file doesn't exist
+                $p->imageData = null; // Or any other appropriate handling
+            }
+        }
+
+        // Generate PDF
+        $dompdf = new Dompdf();
+        $html = View::make('menu.dataMenu', compact('menu'))->render();
+        $dompdf->loadHtml($html);
+        $dompdf->render();
+
+        // Return the PDF as a download
+        return $dompdf->stream('menu.pdf');
+    }
 
     public function store(StoreMenuRequest $request)
     {

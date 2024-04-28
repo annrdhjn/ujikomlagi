@@ -91,7 +91,7 @@
 
 @push('script')
 <script>
-        // $('#tbl-absensi').DataTable()
+        $('#tbl-absensi').DataTable({"dom": '<"float-right" f><"float=left"l>rt<"bottom" ip>'});
 
         $('.alert-success').fadeTo(2000,500).slideUp(500, function(){
              $('.alert-success').slideUp(500)

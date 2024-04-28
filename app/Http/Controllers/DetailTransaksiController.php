@@ -15,7 +15,8 @@ class DetailTransaksiController extends Controller
         // $data['detail_transaksi'] = DetailTransaksi::with(['menu'])->get();
         $data['detail_transaksi'] = DetailTransaksi::with(['transaksi'])->get();
         $data['transaksi'] = Transaksi::get();
-        return view('faktur.index')->with($data);
+        return view('laporan.index')->with($data);
+
     }
 
     public function store(StoreDetailTransaksiRequest $request)
@@ -23,7 +24,7 @@ class DetailTransaksiController extends Controller
         //
     }
 
-    public function update(UpdateDetailTransaksiRequest $request, DetailTransaksi $detailTransaksi)
+    public function update(StoreDetailTransaksiRequest $request, DetailTransaksi $detailTransaksi)
     {
         //
     }

@@ -18,7 +18,7 @@ class LoginController extends Controller
                     return redirect()->intended('/pelanggan');
                     break;
                 case '3' :
-                    return redirect()->intended('/');
+                    return redirect()->intended('/laporan');
                     break;
             }
         }
@@ -38,7 +38,7 @@ class LoginController extends Controller
                     return redirect()->intended('/pelanggan');
                     break;
                 case '3' :
-                    return redirect()->intended('/');
+                    return redirect()->intended('/laporan');
                     break;
             }
             return redirect()->intended('/');

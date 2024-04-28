@@ -91,7 +91,7 @@
 
 @push('script')
 <script>
-        // $('#tbl-stok').DataTable()
+        $('#tbl-stok').DataTable();
 
         $('.alert-success').fadeTo(2000,500).slideUp(500, function(){
              $('.alert-success').slideUp(500)

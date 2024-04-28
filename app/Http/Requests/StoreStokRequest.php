@@ -15,7 +15,7 @@ class StoreStokRequest extends FormRequest
     {
         return [
             'menu_id' => 'required',
-            'jumlah' => 'required'
+            'jumlah' => 'required',
         ];
     }
 

@@ -1,9 +1,11 @@
 <?php
 
 use App\Http\Controllers\AbsensiController;
+use App\Http\Controllers\DetailTransaksiController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\JenisController;
 use App\Http\Controllers\KategoriController;
+// use App\Http\Controllers\LaporanController;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\MejaController;
 use App\Http\Controllers\MenuController;
@@ -35,6 +37,10 @@ Route::group(['middleware'=>['cekLoginUser:2']], function(){
     Route::get('/nota/{nofaktur}', [TransaksiController::class, 'faktur']);
     });
 
+    Route::group(['middleware'=>['cekLoginUser:3']], function(){
+        Route::resource('/laporan', DetailTransaksiController::class);
+        });
+
 Route::get('/login', [LoginController::class, 'index'])->name('login');
 Route::post('/login/cek', [LoginController::class, 'cekLogin'])->name('cekLogin');
 Route::get('/logout', [LoginController::class, 'logout'])->name('logout');
@@ -61,6 +67,6 @@ Route::post('kategori/import', [KategoriController::class, 'importData'])->name(
 Route::post('meja/import', [MejaController::class, 'importData'])->name('import-meja');
 
 
-// Import excel
+// export pdf
 Route::get('export/jenis/pdf', [JenisController::class, 'generatepdf'])->name('export-jenis-pdf');
 Route::get('export/menu/pdf', [MenuController::class, 'generatepdf'])->name('export-menu-pdf');
