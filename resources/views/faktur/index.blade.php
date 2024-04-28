@@ -97,7 +97,7 @@ tr:hover {
 <body>
     <div class="container-box">
         <h2>JCafe</h2>
-        <h3>Seongsu-dong</h3>
+        <h3>Jl. Aria Cikondang</h3>
         <hr>
 
         @if(isset($transaksi))

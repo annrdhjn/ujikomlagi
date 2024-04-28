@@ -40,6 +40,9 @@ class TransaksiController extends Controller
             if (!$insertTransaksi->exists) return 'error';
 
             foreach ($request->orderedList as $detail) {
+                // $menu = menu::find($detail['id']);
+                // $menu->stok->jumlah = $menu->stok->jumlah - $detail['qty'];
+                // $menu->stok->save();
                 $insertDetailTransaksi = DetailTransaksi::create([
                     'transaksi_id' => $notrans,
                     'menu_id' => $detail['id'],
@@ -47,6 +50,7 @@ class TransaksiController extends Controller
                     'subtotal' => $detail['harga'] * $detail['qty'],
                 ]);
             }
+
 
             DB::commit();
             return response()->json(['status' => true, 'message' => 'Pemesanan Berhasil!', 'notrans' => $notrans]);

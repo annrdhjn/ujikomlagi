@@ -57,6 +57,7 @@ Route::get('export/produk', [ProdukTitipanController::class, 'exportData'])->nam
 Route::get('export/absensi', [AbsensiController::class, 'exportData'])->name('export-absensi');
 Route::get('export/kategori', [KategoriController::class, 'exportData'])->name('export-kategori');
 Route::get('export/meja', [MejaController::class, 'exportData'])->name('export-meja');
+Route::get('export/laporan', [DetailTransaksiController::class, 'exportData'])->name('export-laporan');
 
 
 
@@ -73,3 +74,4 @@ Route::post('meja/import', [MejaController::class, 'importData'])->name('import-
 // export pdf
 Route::get('export/jenis/pdf', [JenisController::class, 'generatepdf'])->name('export-jenis-pdf');
 Route::get('export/menu/pdf', [MenuController::class, 'generatepdf'])->name('export-menu-pdf');
+Route::get('export/laporan/pdf', [DetailTransaksiController::class, 'generatepdf'])->name('export-laporan-pdf');

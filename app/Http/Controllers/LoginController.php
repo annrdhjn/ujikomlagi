@@ -12,7 +12,7 @@ class LoginController extends Controller
         if($user = Auth::user()){
             switch($user->level){
                 case '1' :
-                    return redirect()->intended('/jenis');
+                    return redirect()->intended('/grafik');
                     break;
                 case '2' :
                     return redirect()->intended('/pelanggan');
@@ -32,7 +32,7 @@ class LoginController extends Controller
             $user = Auth::user();
             switch($user->level){
                 case '1' :
-                    return redirect()->intended('/jenis');
+                    return redirect()->intended('/grafik');
                     break;
                 case '2' :
                     return redirect()->intended('/pelanggan');

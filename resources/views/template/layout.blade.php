@@ -54,7 +54,7 @@
             <!-- menu profile quick info -->
             <div class="profile clearfix">
               <div class="profile_pic">
-                <img src="pp2.jpg" alt="{{ asset('template')}}." class="img-circle profile_img">
+                <img src="cafeilu.jpg" alt="{{ asset('template')}}." class="img-circle profile_img">
               </div>
               <div class="profile_info">
                 <span>Welcome To</span>

@@ -10,32 +10,30 @@
           <div class="">
             <div class="row" style="display: inline-block;">
             <div class="top_tiles">
-              <div class="animated flipInY col-lg-3 col-md-3 col-sm-6 ">
+              <div class="animated flipInY col-lg-4 col-md-3 col-sm-6 ">
                 <div class="tile-stats">
                   <div class="count">{{$count_menu}}</div>
                   <h3>Menu</h3>
                 </div>
               </div>
-              <div class="animated flipInY col-lg-4 col-md-3 col-sm-5 ">
+              <div class="animated flipInY col-lg-5 col-md-3 col-sm-5 ">
                 <div class="tile-stats">
                   <div class="count">{{$count_pelanggan}}</div>
                   <h3>Pelanggan</h3>
                 </div>
               </div>
-              <div class="animated flipInY col-lg-4 col-md-3 col-sm-6 ">
+              <div class="animated flipInY col-lg-5 col-md-3 col-sm-6 ">
                 <div class="tile-stats">
                   <div class="count">{{$count_transaksi}}</div>
                   <h3>Transaksi</h3>
                 </div>
               </div>
-              <div class="animated flipInY col-lg-3 col-md-3 col-sm-6 ">
+              <!-- <div class="animated flipInY col-lg-3 col-md-3 col-sm-6 ">
                 <div class="tile-stats">
-                  <div class="icon"><i class="fa fa-check-square-o"></i></div>
                   <div class="count">179</div>
                   <h3>New Sign ups</h3>
-                  <p>Lorem ipsum psdea itgum rixt.</p>
                 </div>
-              </div>
+              </div> -->
             </div>
           </div>
 
@@ -43,11 +41,11 @@
               <div class="col-md-12">
                 <div class="x_panel">
                   <div class="x_title">
-                    <h2>Transaction Summary <small>Weekly progress</small></h2>
+                    <h2>Grafik Penjualan <small>Weekly progress</small></h2>
                     <div class="filter">
                       <div id="reportrange" class="pull-right" style="background: #fff; cursor: pointer; padding: 5px 10px; border: 1px solid #ccc">
                         <i class="glyphicon glyphicon-calendar fa fa-calendar"></i>
-                        <span>December 30, 2014 - January 28, 2015</span> <b class="caret"></b>
+                        <span>December 30, 2023 - April 30, 2024</span> <b class="caret"></b>
                       </div>
                     </div>
                     <div class="clearfix"></div>

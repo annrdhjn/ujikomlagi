@@ -40,25 +40,25 @@
 
 <body>
 
-    <h1>Data Jenis</h1>
+    <h1>Data Laporan</h1>
     <table id="customers">
         <tr>
             <th>No</th>
-            <th>Nama Menu</th>
-            <th>Jenis</th>
-            <th>image</th>
-            <th>Deskripsi</th>
+            <th>Transaksi</th>
+            <th>Menu</th>
+            <th>Jumlah</th>
+            <th>Subtotal</th>
         </tr>
         @php
         $no = 1;
         @endphp
-        @foreach ($menu as $p)
+        @foreach ($detail_transaksi as $p)
         <tr>
             <td>{{ $no++ }}</td>
-            <td>{{ $p->nama_menu }}</td>
-            <td>{{ $p->jenis->nama_jenis }}</td>
-            <td>{{ $p->image }}</td>
-            <td>{{ $p->deskripsi }}</td>
+            <td>{{ $p->transaksi_id }}</td>
+            <td>{{ $p->menu->nama_menu }}</td>
+            <td>{{ $p->jumlah }}</td>
+            <td>{{ $p->subtotal }}</td>
         </tr>
         @endforeach
     </table>

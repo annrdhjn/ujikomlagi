@@ -44,21 +44,15 @@
     <table id="customers">
         <tr>
             <th>No</th>
-            <th>Nama Menu</th>
             <th>Jenis</th>
-            <th>image</th>
-            <th>Deskripsi</th>
         </tr>
         @php
         $no = 1;
         @endphp
-        @foreach ($menu as $p)
+        @foreach ($jenis as $p)
         <tr>
             <td>{{ $no++ }}</td>
-            <td>{{ $p->nama_menu }}</td>
-            <td>{{ $p->jenis->nama_jenis }}</td>
-            <td>{{ $p->image }}</td>
-            <td>{{ $p->deskripsi }}</td>
+            <td>{{ $p->nama_jenis }}</td>
         </tr>
         @endforeach
     </table>

@@ -26,7 +26,7 @@
                                     border: 1px solid #ccc;
                                 ">
                                     <i class="glyphicon glyphicon-calendar fa fa-calendar"></i>
-                                    <span>December 30, 2014 - January 28, 2015</span>
+                                    <span>December 30, 2023 - April 30, 2024</span>
                                     <b class="caret"></b>
                                 </div>
                             </div>
