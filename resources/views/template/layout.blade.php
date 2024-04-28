@@ -75,6 +75,10 @@
                   </li>
                 </ul> -->
                 <ul class="nav side-menu">
+                  <li><a href="{{ url('/grafik')}}"><i class="fa-solid fa-chart-area"></i> Dashboard</a>
+                  </li>
+                </ul>
+                <ul class="nav side-menu">
                   <li><a href="{{ url('/jenis')}}"><i class="fa fa-readme"></i> Jenis</a>
                   </li>
                 </ul>

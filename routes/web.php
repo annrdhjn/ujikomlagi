@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\AbsensiController;
 use App\Http\Controllers\DetailTransaksiController;
+use App\Http\Controllers\grafikController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\JenisController;
 use App\Http\Controllers\KategoriController;
@@ -24,7 +25,8 @@ Route::resource('/kategori', KategoriController::class);
 Route::resource('/jenis', JenisController::class);
 Route::resource('/menu', MenuController::class);
 Route::resource('/stok', StokController::class);  
-Route::resource('/absensi', AbsensiController::class);  
+Route::resource('/absensi', AbsensiController::class);
+Route::resource('/grafik', grafikController::class);  
 
 });
 
@@ -35,6 +37,7 @@ Route::group(['middleware'=>['cekLoginUser:2']], function(){
     Route::resource('/transaksi', TransaksiController::class);
     // Route::resource('/produk', ProdukTitipanController::class);
     Route::get('/nota/{nofaktur}', [TransaksiController::class, 'faktur']);
+
     });
 
     Route::group(['middleware'=>['cekLoginUser:3']], function(){
