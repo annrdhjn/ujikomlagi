@@ -44,48 +44,54 @@
           </div>
 
             <div class="row">
-              <div class="col-md-12">
+            <div class="col-md-12">
                 <div class="x_panel">
-                  <div class="x_title">
-                    <h2>Grafik Penjualan <small>Weekly progress</small></h2>
-                    <div class="filter">
-                      <div id="reportrange" class="pull-right" style="background: #fff; cursor: pointer; padding: 5px 10px; border: 1px solid #ccc">
-                        <i class="glyphicon glyphicon-calendar fa fa-calendar"></i>
-                        <span>December 30, 2023 - April 30, 2024</span> <b class="caret"></b>
-                      </div>
-                    </div>
-                    <div class="clearfix"></div>
-                  </div>
-                  <div class="x_content">
-                    <div class="col-md-9 col-sm-12 ">
-                      <div class="demo-container" style="height:280px">
-                        <div id="chart_plot_02" class="demo-placeholder"></div>
-                      </div>
-                      <div class="tiles">
-                        <div class="col-md-4 tile">
-                          <span>Total Sessions</span>
-                          <h2>231,809</h2>
-                          <span class="sparkline11 graph" style="height: 160px;">
-                               <canvas width="200" height="60" style="display: inline-block; vertical-align: top; width: 94px; height: 30px;"></canvas>
-                          </span>
-                        </div>
-                        <div class="col-md-4 tile">
-                          <span>Total Revenue</span>
-                          <h2>$231,809</h2>
-                          <span class="sparkline22 graph" style="height: 160px;">
-                                <canvas width="200" height="60" style="display: inline-block; vertical-align: top; width: 94px; height: 30px;"></canvas>
-                          </span>
-                        </div>
-                        <div class="col-md-4 tile">
-                          <span>Total Sessions</span>
-                          <h2>231,809</h2>
-                          <span class="sparkline11 graph" style="height: 160px;">
-                                 <canvas width="200" height="60" style="display: inline-block; vertical-align: top; width: 94px; height: 30px;"></canvas>
-                          </span>
-                        </div>
-                      </div>
+                    <div class="x_title">
+                        <h2>Grafik Transaksi <small>Weekly progress</small></h2>
+                        <div class="filter" >
+                            <!-- Elemen input tanggal -->
+                            <form action="{{ route('grafik.index') }}" method="GET">
+                                <label for="tanggal_mulai">Tanggal Mulai : </label>
+                                <input type="date" id="tanggal_mulai" name="tanggal_mulai">
 
+                                <label for="tanggal_selesai">Tanggal Selesai: </label>
+                                <input type="date" id="tanggal_selesai" name="tanggal_selesai">
+                                <button type="submit">Filter</button>
+                            </form>
+                        </div>
+                        <div class="clearfix"></div>
                     </div>
+                    <div class="x_content">
+                        <div class="col-md-9 col-sm-12">
+
+                            <!-- Grafik dan data lainnya -->
+                            <div class="demo-container" style="height:280px">
+                                <div id="chart_plot_02" class="demo-placeholder"></div>
+                            </div>
+                            <div class="tiles">
+                                <div class="col-md-4 tile">
+                                    <span>Total Transaksi</span>
+                                    <h2>{{ $count_transaksi }}</h2>
+                                    <span class="sparkline11 graph" style="height: 160px;">
+                                        <canvas width="200" height="60" style="display: inline-block; vertical-align: top; width: 94px; height: 30px;"></canvas>
+                                    </span>
+                                </div>
+                                <div class="col-md-4 tile">
+                                    <span>Total Pendapatan</span>
+                                    <h2>Rp. {{ number_format($pendapatan, 0, ',', '.') }}</h2>
+                                    <span class="sparkline22 graph" style="height: 160px;">
+                                        <canvas width="200" height="60" style="display: inline-block; vertical-align: top; width: 94px; height: 30px;"></canvas>
+                                    </span>
+                                </div>
+                                <div class="col-md-4 tile">
+                                    <span>Total Pelanggan</span>
+                                    <h2>{{ $count_pelanggan }}</h2>
+                                    <span class="sparkline11 graph" style="height: 160px;">
+                                        <canvas width="200" height="60" style="display: inline-block; vertical-align: top; width: 94px; height: 30px;"></canvas>
+                                    </span>
+                                </div>
+                            </div>
+                        </div>
 
 
                       <!-- jumlah penjualan teratas -->
@@ -258,8 +264,8 @@
                                       <img width="70px" src="{{asset('image')}}/{{ $p->menu-> image }}" alt="" style="margin-right: 20px;">
                                       </a>
                                       <div class="media-body">
-                                        <a class="title" >{{ $p->menu->nama_menu }}</a>
-                                        <p><strong>Rp. {{ number_format($p->transaksi->total_harga, 0, ',', '.') }}</strong></p>
+                                        <a class="title" style="font-size: 18px;">{{ $p->menu->nama_menu }}</a>
+                                        <p style="font-size: 14px;"><strong>Rp. {{ number_format($p->transaksi->total_harga, 0, ',', '.') }}</strong></p>
                                       </div>
                                     </li>
                                     @endforeach
@@ -392,3 +398,32 @@
         <!-- /page content -->
         
 @endsection
+
+@push('script')
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<script>
+    var ctx = document.getElementById('chart_transaksi').getContext('2d');
+    var myChart = new Chart(ctx, {
+        type: 'line',
+        data: {
+            labels: json_encode($labels),
+            datasets: [{
+                label: 'Jumlah Transaksi',
+                data: json_encode($data),
+                backgroundColor: 'rgba(54, 162, 235, 0.2)',
+                borderColor: 'rgba(54, 162, 235, 1)',
+                borderWidth: 1
+            }]
+        },
+        options: {
+            scales: {
+                yAxes: [{
+                    ticks: {
+                        beginAtZero: true
+                    }
+                }]
+            }
+        }
+    });
+</script>
+@endpush
