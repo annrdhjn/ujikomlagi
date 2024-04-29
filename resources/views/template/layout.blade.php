@@ -113,7 +113,7 @@
                   </li>
                 </ul>
                 <ul class="nav side-menu">
-                  <li><a href="{{ url('/pemesanan')}}"><i class="fa fa-cash-register"></i> Pemesanan</a>
+                  <li><a href="{{ url('/pemesanan')}}"><i class="fa fa-cash-register"></i> Transaksi</a>
                   </li>
                 </ul>
                 <!-- <ul class="nav side-menu">

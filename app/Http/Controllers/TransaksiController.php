@@ -6,7 +6,7 @@ use App\Models\Transaksi;
 use App\Http\Requests\StoreTransaksiRequest;
 use App\Http\Requests\UpdateTransaksiRequest;
 use App\Models\DetailTransaksi;
-use App\Models\Jenis;
+use App\Models\Menu;
 use Exception;
 use Illuminate\Database\Eloquent\ModelNotFoundException;
 use Illuminate\Database\QueryException;
@@ -40,9 +40,11 @@ class TransaksiController extends Controller
             if (!$insertTransaksi->exists) return 'error';
 
             foreach ($request->orderedList as $detail) {
-                // $menu = menu::find($detail['id']);
-                // $menu->stok->jumlah = $menu->stok->jumlah - $detail['qty'];
-                // $menu->stok->save();
+                // $menu = Menu::find($detail['id']);
+                // if ($menu) {
+                //     $menu->stok->jumlah = $menu->stok->jumlah - $detail['qty'];
+                //     $menu->stok->save();
+                // }
                 $insertDetailTransaksi = DetailTransaksi::create([
                     'transaksi_id' => $notrans,
                     'menu_id' => $detail['id'],
