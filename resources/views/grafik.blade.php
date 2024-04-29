@@ -57,7 +57,7 @@
                     <div class="clearfix"></div>
                   </div>
                   <div class="x_content">
-                    <!-- <div class="col-md-9 col-sm-12 ">
+                    <div class="col-md-9 col-sm-12 ">
                       <div class="demo-container" style="height:280px">
                         <div id="chart_plot_02" class="demo-placeholder"></div>
                       </div>
@@ -83,13 +83,13 @@
                                  <canvas width="200" height="60" style="display: inline-block; vertical-align: top; width: 94px; height: 30px;"></canvas>
                           </span>
                         </div>
-                      </div> -->
+                      </div>
 
                     </div>
 
 
                       <!-- jumlah penjualan teratas -->
-                    <div class="col-md-4 col-sm-12 ">
+                    <div class="col-md-3 col-sm-12 ">
                       <div>
                         <div class="x_title">
                           <h2>Top 5 Penjualan</h2>
