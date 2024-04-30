@@ -45,9 +45,9 @@
                                 <button type="button" class="btn btn-warning" data-toggle="modal" data-target="#importMenu">
                                     <i class="fa fa-file-excel"></i> Import
                                 </button> 
-                                <a href="{{route('export-menu-pdf')}}" class="btn btn-danger">
+                                <!-- <a href="{{route('export-menu-pdf')}}" class="btn btn-danger">
                                     <i class="fa fa-file-pdf"></i> PDF
-                                </a>            
+                                </a>             -->
                                 </div>
                                 <div class="clearfix"></div>
                             </div>

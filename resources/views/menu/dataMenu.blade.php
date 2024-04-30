@@ -18,7 +18,7 @@
                 <td>{{ $i = !isset ($i) ? ($i = 1) : ++$i }}</td>
                 <td>{{ $p->nama_menu }}</td>
                 <td>{{ $p->jenis->nama_jenis }}</td>
-                <td>{{ $p->harga }}</td>
+                <td>{{ number_format($p->harga, 0, ',', '.') }}</td>
                 @if (request()->route()->getActionMethod() == 'generatepdf')
                     <td><img width="70px" src="data:image/jpeg;base64,{{ $p->image }}" alt=""></td>
                 @else

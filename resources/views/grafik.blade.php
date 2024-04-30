@@ -26,11 +26,11 @@
                   <h3>Pelanggan</h3>
                 </div>
               </div>
-              <div class="animated flipInY col-lg-4 col-md-3 col-sm-6 ">
+              <div class="animated flipInY col-lg-5 col-md-3 col-sm-6 ">
                 <div class="tile-stats">
                 <div class="icon"><i class="fa fa-credit-card"></i></div>
                   <div class="count">{{$count_transaksi}}</div>
-                  <h3>Transaksi</h3>
+                  <h3>Transaksi Hari Ini</h3>
                 </div>
               </div>
               <div class="animated flipInY col-lg-6 col-md-3 col-sm-6 ">

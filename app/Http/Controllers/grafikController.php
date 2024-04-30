@@ -19,7 +19,8 @@ class grafikController extends Controller
         $pelanggan = Pelanggan::get();
         $data['count_pelanggan'] = $pelanggan ->count();
 
-        $transaksi = Transaksi::get();
+        $tanggal= '2024-04-30';
+        $transaksi = Transaksi::whereDate('tanggal', $tanggal)->get();
         $data['count_transaksi'] = $transaksi ->count();
 
         $data['pelanggan'] = Pelanggan::limit(5)->orderBy('created_at', 'desc')->get();
@@ -28,7 +29,8 @@ class grafikController extends Controller
 
         $data['transaksi'] = DetailTransaksi::limit(3)->orderBy('created_at', 'desc')->get();
         
-        $transaksi = Transaksi::get();
+        $tanggal = '2024-04-30';
+        $transaksi = Transaksi::whereDate('tanggal', $tanggal)->get();
         $data['pendapatan'] = $transaksi->sum('total_harga');
 
 

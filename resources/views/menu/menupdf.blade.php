@@ -40,8 +40,8 @@
 
 <body>
 
-    <h1>Data Jenis</h1>
-    <table id="customers">
+    <h1>Data Menu</h1>
+    <table id="menu">
         <tr>
             <th>No</th>
             <th>Nama Menu</th>

@@ -27,8 +27,6 @@ class MenuExport implements FromCollection, WithHeadings, WithEvents
             'Harga',
             'Image',
             'Deskripsi',
-            'Tanggal Input',
-            'Tanggal Update',
         ];
     }
 
@@ -42,16 +40,14 @@ class MenuExport implements FromCollection, WithHeadings, WithEvents
                 $event->sheet->getColumnDimension('D')->setAutoSize(true);
                 $event->sheet->getColumnDimension('E')->setAutoSize(true);
                 $event->sheet->getColumnDimension('F')->setAutoSize(true);
-                $event->sheet->getColumnDimension('G')->setAutoSize(true);
-                $event->sheet->getColumnDimension('H')->setAutoSize(true);
 
                 $event->sheet->insertNewRowBefore(1, 2);
-                $event->sheet->mergeCells('A1:H1');
+                $event->sheet->mergeCells('A1:F1');
                 $event->sheet->setCellValue('A1', 'DATA MENU MAKANAN');
                 $event->sheet->getStyle('A1')->getFont()->setBold(true);
                 $event->sheet->getStyle('A1')->getAlignment()->setHorizontal(\PhpOffice\PhpSpreadsheet\Style\Alignment::HORIZONTAL_CENTER);
 
-                $event->sheet->getStyle('A3:H'.$event->sheet->getHighestRow())->applyFromArray([
+                $event->sheet->getStyle('A3:F'.$event->sheet->getHighestRow())->applyFromArray([
                     'borders' => [
                         'allBorders' => [
                             'borderStyle' => \PhpOffice\PhpSpreadsheet\Style\Border::BORDER_THIN,

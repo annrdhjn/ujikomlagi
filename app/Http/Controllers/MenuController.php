@@ -42,7 +42,7 @@ class MenuController extends Controller
     public function generatepdf()
     {
         // Get data
-        $menu = menu::all();
+        $menu = Menu::all();
 
         // Loop through menu items and encode images to base64
         foreach ($menu as $p) {
@@ -70,7 +70,7 @@ class MenuController extends Controller
     {
         // $menu = Menu::find($id);
         $request->validate([
-            'image' => 'required|image|mimes:png, jpg, jpeg, svg|max:2048',
+            'image' => 'required|image|mimes:png,jpg,jpeg,svg|max:2048',
         ]);
         $imageName = time() . '.' . $request->image->extension();
         $request->image->move(public_path('image'), $imageName);
@@ -87,7 +87,7 @@ class MenuController extends Controller
     {
         $menu = Menu::find($id);
         $request->validate([
-            'image' => 'required|image|mimes:png, jpg, jpeg, svg|max:2048',
+            'image' => 'required|image|mimes:png,jpg,jpeg,svg|max:2048',
         ]);
         $imageName = time() . '.' . $request->image->extension();
         $request->image->move(public_path('image'), $imageName);
