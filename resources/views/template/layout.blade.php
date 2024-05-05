@@ -82,10 +82,10 @@
                   <li><a href="{{ url('/jenis')}}"><i class="fa fa-readme"></i> Jenis</a>
                   </li>
                 </ul>
-                <!-- <ul class="nav side-menu">
+                <ul class="nav side-menu">
                   <li><a href="{{ url('/kategori')}}"><i class="fa fa-readme"></i> Category</a>
                   </li>
-                </ul> -->
+                </ul>
                 <ul class="nav side-menu">
                   <li><a href="{{ url('/menu')}}"><i class="fa fa-utensils"></i> Menu</a>
                   </li>
@@ -116,10 +116,10 @@
                   <li><a href="{{ url('/pemesanan')}}"><i class="fa fa-cash-register"></i> Transaksi</a>
                   </li>
                 </ul>
-                <!-- <ul class="nav side-menu">
+                <ul class="nav side-menu">
                   <li><a href="{{ url('/meja')}}"><i class="fa fa-table"></i> Meja</a>
                   </li>
-                </ul> -->
+                </ul>
                 <ul class="nav side-menu">
                   <li><a href="{{ url('/logout')}}"><i class="fa-solid fa-right-from-bracket"></i> Logout</a>
                   </li>
